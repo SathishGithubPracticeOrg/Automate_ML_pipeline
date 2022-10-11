@@ -1,0 +1,5 @@
+[core]
+    remote = localremote
+    analytics = false
+['remote "localremote"']
+    url = /Volumes/MicroSD128GB/dvc-storage

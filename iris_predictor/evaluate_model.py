@@ -1,7 +1,7 @@
 
 import pickle
 import pandas as pd
-import openpyxl
+#import openpyxl
 import json
 
 from sklearn import metrics
@@ -9,7 +9,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 
 from config import Config
-Config.METRICS_FILE_PATH.mkdir(parents = True, exist_ok= True)
+#Config.METRICS_FILE_PATH.mkdir(parents = True, exist_ok= True)
 
 X_test = pd.read_csv(str(Config.FEATURES_PATH/"test_features.csv"))
 y_test = pd.read_csv(str(Config.FEATURES_PATH/"test_labels.csv"))
@@ -19,7 +19,7 @@ y_pred = model.predict (X_test)
 
 metrics_report = pd.DataFrame(classification_report(y_test, y_pred, output_dict=True)).transpose()
 print(metrics_report)
-metrics_report.to_excel(str(Config.METRICS_FILE_PATH/ "metrics_report.xlsx"), index= True)
+#metrics_report.to_excel(str(Config.ASSETS_PATH/ "metrics_report.xlsx"), index= True)
 
 accuracy = metrics.accuracy_score (y_test, y_pred)
 precision = metrics.precision_score (y_test, y_pred, average = None)
@@ -31,5 +31,5 @@ print("Accuracy Score = ", accuracy, \
         "F1 score = ",f1, \
             "Recall score = ", recall)
 
-with open(str(Config.METRICS_FILE_PATH/"metrics.json"), "w") as outfile:
+with open(str(Config.ASSETS_PATH/ "metrics.json"), "w") as outfile:
     json.dump(dict(accuracy = accuracy), outfile)
