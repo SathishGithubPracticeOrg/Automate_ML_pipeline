@@ -1,0 +1,61 @@
+schema: '2.0'
+stages:
+  createdataset:
+    cmd: python iris_predictor/create_dataset.py
+    deps:
+    - path: iris_predictor/create_dataset.py
+      md5: e7be6ade47c07e66acbfbffb8a3e035f
+      size: 707
+    outs:
+    - path: assets/data
+      md5: 8525366fadd8a4a54ed1ffd8b23f89c5.dir
+      size: 5172
+      nfiles: 2
+  createfeatures:
+    cmd: python iris_predictor/create_features.py
+    deps:
+    - path: assets/data
+      md5: 8525366fadd8a4a54ed1ffd8b23f89c5.dir
+      size: 5172
+      nfiles: 2
+    - path: iris_predictor/create_features.py
+      md5: 84e68733a0d889bf7204ea71fad77120
+      size: 733
+    outs:
+    - path: assets/features
+      md5: abe74117c71d23f8814dc58211c2f065.dir
+      size: 5172
+      nfiles: 4
+  trainmodel:
+    cmd: python iris_predictor/train_model.py
+    deps:
+    - path: assets/features
+      md5: abe74117c71d23f8814dc58211c2f065.dir
+      size: 5172
+      nfiles: 4
+    - path: iris_predictor/train_model.py
+      md5: ad30b33351b9b77baab75be9ea03893e
+      size: 495
+    outs:
+    - path: assets/models
+      md5: e76225f7775362d992097d72f19e3ec8.dir
+      size: 10080
+      nfiles: 1
+  evalmodel:
+    cmd: python iris_predictor/evaluate_model.py
+    deps:
+    - path: assets/features
+      md5: abe74117c71d23f8814dc58211c2f065.dir
+      size: 5172
+      nfiles: 4
+    - path: assets/models
+      md5: e76225f7775362d992097d72f19e3ec8.dir
+      size: 10080
+      nfiles: 1
+    - path: iris_predictor/evaluate_model.py
+      md5: f58dd04219218d7a3ef5ad38942b1360
+      size: 1184
+    outs:
+    - path: assets/metrics.json
+      md5: 9a0379eaa11dd7b9e9995a62a5f21656
+      size: 17

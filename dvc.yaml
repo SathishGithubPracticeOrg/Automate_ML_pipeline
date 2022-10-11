@@ -1,0 +1,29 @@
+stages:
+  createdataset:
+    cmd: python iris_predictor/create_dataset.py
+    deps:
+    - iris_predictor/create_dataset.py
+    outs:
+    - assets/data
+  createfeatures:
+    cmd: python iris_predictor/create_features.py
+    deps:
+    - assets/data
+    - iris_predictor/create_features.py
+    outs:
+    - assets/features
+  trainmodel:
+    cmd: python iris_predictor/train_model.py
+    deps:
+    - assets/features
+    - iris_predictor/train_model.py
+    outs:
+    - assets/models
+  evalmodel:
+    cmd: python iris_predictor/evaluate_model.py
+    deps:
+    - assets/models
+    - assets/features
+    - iris_predictor/evaluate_model.py
+    outs:
+    - assets/metrics.json
