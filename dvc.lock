@@ -34,12 +34,12 @@ stages:
       size: 5172
       nfiles: 4
     - path: iris_predictor/train_model.py
-      md5: 4133476722545d7c4637815e7255ac4f
-      size: 496
+      md5: ad30b33351b9b77baab75be9ea03893e
+      size: 495
     outs:
     - path: assets/models
-      md5: 815782b70ae0e7ab01a00aa9871c78f8.dir
-      size: 90628
+      md5: e76225f7775362d992097d72f19e3ec8.dir
+      size: 10080
       nfiles: 1
   evalmodel:
     cmd: python iris_predictor/evaluate_model.py
@@ -49,8 +49,8 @@ stages:
       size: 5172
       nfiles: 4
     - path: assets/models
-      md5: 815782b70ae0e7ab01a00aa9871c78f8.dir
-      size: 90628
+      md5: e76225f7775362d992097d72f19e3ec8.dir
+      size: 10080
       nfiles: 1
     - path: iris_predictor/evaluate_model.py
       md5: 0a5fef68374d0653f0696f3325e52ecd
