@@ -53,8 +53,8 @@ stages:
       size: 10080
       nfiles: 1
     - path: iris_predictor/evaluate_model.py
-      md5: 0a5fef68374d0653f0696f3325e52ecd
-      size: 1270
+      md5: f58dd04219218d7a3ef5ad38942b1360
+      size: 1184
     outs:
     - path: assets/metrics.json
       md5: 9a0379eaa11dd7b9e9995a62a5f21656

@@ -19,7 +19,6 @@ y_pred = model.predict (X_test)
 
 metrics_report = pd.DataFrame(classification_report(y_test, y_pred, output_dict=True)).transpose()
 print(metrics_report)
-#metrics_report.to_excel(str(Config.ASSETS_PATH/ "metrics_report.xlsx"), index= True)
 
 accuracy = metrics.accuracy_score (y_test, y_pred)
 precision = metrics.precision_score (y_test, y_pred, average = None)
