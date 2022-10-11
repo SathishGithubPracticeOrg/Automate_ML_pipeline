@@ -1,0 +1,6 @@
+sklearn
+pandas
+numpy
+matplotlip
+openpyxl
+dvc
