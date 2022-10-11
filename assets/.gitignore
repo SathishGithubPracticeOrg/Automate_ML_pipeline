@@ -1,6 +1,5 @@
-data/
-original_dataset/
-features/
-models/
-metrics.json
+/data
+/original_dataset
+/features
 /models
+/metrics.json
